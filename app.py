@@ -395,6 +395,14 @@ nav = st.sidebar.radio(
 )
 st.session_state.page = nav
 
+st.sidebar.markdown("---")
+st.sidebar.markdown(
+    """
+    🔗 **Source code**  
+    [GitHub repository](https://github.com/yolandazapadnya/accent_bias_app)
+    """
+)
+
 
 # -------------------------
 # Header
@@ -520,6 +528,7 @@ elif st.session_state.page == "refs":
     st.markdown(f"""<div class='bubble-card'>{t('github_label')}:<a href="https://github.com/yolandazapadnya/accent_bias_app" target="_blank">
             https://github.com/yolandazapadnya/accent_bias_app </a></div>""",
     unsafe_allow_html=True,)
+
 
 elif st.session_state.page == "about":
     st.subheader(t("about_title"))
