@@ -5,7 +5,7 @@ from dataclasses import dataclass
 # Page config
 # -------------------------
 st.set_page_config(
-    page_title="Accent Bias Awareness | Discriminação Linguística",
+    page_title="Accent Bias Awareness | Conscientização sobre a Discriminação Linguística",
     page_icon="💬",
     layout="centered",
 )
@@ -95,14 +95,15 @@ st.markdown(PINK_CSS, unsafe_allow_html=True)
 TEXT = {
     "pt": {
         "lang_label": "🌍 Língua / Language",
-        "lang_pt": "Português (PT)",
-        "lang_en": "English",
-        "title": "Sensibilização para Discriminação Linguística no Recrutamento",
-        "subtitle": "Uma aplicação educativa baseada em investigação (sem recolha de dados).",
+        "lang_pt": "PT",
+        "lang_en": "EN",
+        "title": "Sensibilização para Discriminação Linguística no Recrutamento no contexto português",
+        "subtitle": "Uma aplicação educativa baseada em investigação doutoral sem recolha de dados.",
         "purpose_title": "Objetivo",
         "purpose_body": (
-            "Esta aplicação visa sensibilizar para a discriminação baseada no sotaque e na variedade linguística "
-            "em contextos profissionais, em particular em processos de recrutamento e seleção, promovendo práticas "
+            "Esta aplicação foi desenvolvida no âmbito do Doutoramento em Linguística e"
+            "visa sensibilizar para a discriminação baseada no sotaque e na variedade linguística"
+            "em contextos profissionais, nomeadamente em processos de recrutamento e seleção em Portugal, promovendo práticas"
             "mais justas e inclusivas."
         ),
         "how_title": "Como funciona",
@@ -124,12 +125,22 @@ TEXT = {
         "next": "Próximo",
         "back": "Voltar",
         "done": "Concluir",
+        "about": "Sobre a autora",
         "tips_title": "Dicas práticas para mitigar vieses (recrutamento)",
         "tips_intro": "Sugestões aplicáveis em processos de recrutamento e avaliação de candidatos:",
         "refs_title": "Referências e recursos",
         "refs_intro": "Exemplos de conceitos e linhas de investigação relevantes (adicione as suas referências específicas):",
         "github_label": "🔗 Repositório GitHub (opcional)",
         "image_caption": "Bem-vindo/a! (Pode substituir esta imagem por uma ilustração sua.)",
+        "about_title": "Sobre a autora",
+        "about_body": (
+        "Esta aplicação foi desenvolvida pela Yolanda Xavier, doutoranda em Psicolinguística,"
+        "no âmbito de investigação doutoral académica sobre discriminação linguística"
+        "em contextos de recrutamento e trabalho."
+        "O objetivo é promover reflexão e práticas baseadas em evidência, "
+        "sem recolha de dados pessoais."),
+        "about_affiliation": (
+        "Afiliação: Centro de Linguística da Universidade NOVA de Lisboa (CLUNL)"),
     },
     "en": {
         "lang_label": "🌍 Language / Língua",
@@ -167,13 +178,21 @@ TEXT = {
         "refs_intro": "Examples of relevant concepts and research lines (add your own specific references):",
         "github_label": "🔗 GitHub repository (optional)",
         "image_caption": "Welcome! (You can replace this image with your own illustration.)",
+        "about_title": "About the author",
+        "about_body": (
+        "This application was developed by a Yolanda Xavier, a PhD candidate in Psycholinguistics, "
+        "as part of academic doctoral research on language-based discrimination and bias "
+        "in hiring and workplace contexts. "
+        "Its goal is to encourage reflection and evidence-based practices, "
+        "without collecting personal data."),
+        "about_affiliation": (
+        "Affiliation: Research Centre for Linguistics at NOVA University Lisbon, Portugal"),
     },
 }
 
 
 # -------------------------
 # Quiz content (text-only, neutral tone)
-# You can edit these later to match your thesis framing.
 # -------------------------
 @dataclass
 class Scenario:
@@ -370,6 +389,7 @@ nav = st.sidebar.radio(
         "quiz": t("nav_quiz"),
         "tips": t("nav_tips"),
         "refs": t("nav_refs"),
+        "about": t("about_title"),
     }[x],
     index=["intro", "quiz", "tips", "refs"].index(st.session_state.page),
 )
@@ -498,3 +518,16 @@ elif st.session_state.page == "refs":
     st.markdown("<div class='bubble-card'><ul>" + "".join([f"<li>{x}</li>" for x in refs]) + "</ul></div>", unsafe_allow_html=True)
 
     st.markdown(f"<div class='bubble-card'>{t('github_label')}: <span class='small-muted'>add your GitHub link here</span></div>", unsafe_allow_html=True)
+
+elif st.session_state.page == "about":
+    st.subheader(t("about_title"))
+
+    st.markdown(
+        f"""
+        <div class='bubble-card'>
+            <p>{t("about_body")}</p>
+            <p class='small-muted'>{t("about_affiliation")}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
