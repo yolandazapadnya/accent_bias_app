@@ -383,7 +383,7 @@ st.sidebar.markdown(f"### {t('nav_label')}")
 
 nav = st.sidebar.radio(
     label="",
-    options=["intro", "quiz", "tips", "refs"],
+    options=["intro", "quiz", "tips", "refs", "about"],
     format_func=lambda x: {
         "intro": t("nav_intro"),
         "quiz": t("nav_quiz"),
@@ -391,7 +391,7 @@ nav = st.sidebar.radio(
         "refs": t("nav_refs"),
         "about": t("about_title"),
     }[x],
-    index=["intro", "quiz", "tips", "refs"].index(st.session_state.page),
+    index=["intro", "quiz", "tips", "refs", "about"].index(st.session_state.page),
 )
 st.session_state.page = nav
 
