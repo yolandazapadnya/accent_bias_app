@@ -525,9 +525,9 @@ elif st.session_state.page == "refs":
 
     st.markdown("<div class='bubble-card'><ul>" + "".join([f"<li>{x}</li>" for x in refs]) + "</ul></div>", unsafe_allow_html=True)
 
-    st.markdown(f"""<div class='bubble-card'>{t('github_label')}:<a href="https://github.com/yolandazapadnya/accent_bias_app" target="_blank">
-            https://github.com/yolandazapadnya/accent_bias_app </a></div>""",
-    unsafe_allow_html=True,)
+    #st.markdown(f"""<div class='bubble-card'>{t('github_label')}:<a href="https://github.com/yolandazapadnya/accent_bias_app" target="_blank">
+    #       https://github.com/yolandazapadnya/accent_bias_app </a></div>""",
+    #unsafe_allow_html=True,)
 
 
 elif st.session_state.page == "about":
